@@ -1,0 +1,212 @@
+// ===== Like Button Functionality =====
+(function() {
+  const LIKED_KEY = 'fei_lin_has_liked';
+  const LIKE_COUNT_KEY = 'fei_lin_like_count';
+
+  const likeBtn = document.getElementById('likeBtn');
+  const likeCount = document.getElementById('likeCount');
+
+  if (!likeBtn || !likeCount) return;
+
+  function hasLikedLocally() {
+    return localStorage.getItem(LIKED_KEY) === 'true';
+  }
+
+  function getLocalCount() {
+    return parseInt(localStorage.getItem(LIKE_COUNT_KEY) || '0', 10);
+  }
+
+  function updateDisplay() {
+    const count = getLocalCount();
+    const liked = hasLikedLocally();
+    likeCount.textContent = count;
+    if (liked) {
+      likeBtn.classList.add('liked');
+    } else {
+      likeBtn.classList.remove('liked');
+    }
+  }
+
+  likeBtn.addEventListener('click', function() {
+    if (hasLikedLocally()) {
+      likeBtn.style.transform = 'scale(0.95)';
+      setTimeout(() => { likeBtn.style.transform = ''; }, 150);
+    } else {
+      const newCount = getLocalCount() + 1;
+      localStorage.setItem(LIKE_COUNT_KEY, String(newCount));
+      localStorage.setItem(LIKED_KEY, 'true');
+      likeCount.textContent = newCount;
+      likeBtn.classList.add('liked');
+      likeBtn.style.transform = 'scale(1.2)';
+      setTimeout(() => { likeBtn.style.transform = ''; }, 200);
+    }
+  });
+
+  updateDisplay();
+})();
+
+// ===== Publications Filter =====
+const chips = Array.from(document.querySelectorAll(".filter-tag"));
+const pubs = Array.from(document.querySelectorAll(".pub"));
+
+function setActive(filter) {
+  chips.forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.filter === filter)));
+
+  pubs.forEach((p) => {
+    const tags = (p.dataset.tags || "")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+    const show = filter === "all" || tags.includes(filter);
+
+    if (show) {
+      p.style.display = "";
+      p.style.opacity = "0";
+      p.style.transform = "translateY(8px)";
+      requestAnimationFrame(() => {
+        p.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+        p.style.opacity = "1";
+        p.style.transform = "translateY(0)";
+      });
+    } else {
+      p.style.display = "none";
+    }
+  });
+}
+
+chips.forEach((chip) => {
+  chip.addEventListener("click", () => setActive(chip.dataset.filter));
+});
+
+setActive("all");
+
+// ===== Auto-update Date =====
+document.querySelectorAll("#lastUpdated").forEach((el) => {
+  el.textContent = new Date().toISOString().slice(0, 10);
+});
+
+// ===== "/" Hotkey =====
+window.addEventListener("keydown", (e) => {
+  if (e.key === "/" && document.activeElement.tagName !== "INPUT") {
+    e.preventDefault();
+    chips[0]?.focus();
+  }
+});
+
+// ===== Smooth Scroll for Nav Links =====
+document.querySelectorAll('.nav a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", (e) => {
+    const target = document.querySelector(anchor.getAttribute("href"));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
+
+// ===== Publication Search =====
+(function () {
+  const input = document.getElementById("pubSearch");
+  if (!input) return;
+  const pubs = Array.from(document.querySelectorAll(".pub"));
+
+  const originalHTML = new Map();
+  pubs.forEach((p) => {
+    originalHTML.set(p, {
+      title: p.querySelector(".ptitle").innerHTML,
+      auth: p.querySelector(".pauth").innerHTML,
+    });
+  });
+
+  function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+
+  function highlightText(original, query) {
+    if (!query) return original;
+    const re = new RegExp("(" + escapeRe(query) + ")", "gi");
+    return original.replace(re, '<span class="highlight">$1</span>');
+  }
+
+  input.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    pubs.forEach((p) => {
+      const orig = originalHTML.get(p);
+      const titleEl = p.querySelector(".ptitle");
+      const authEl = p.querySelector(".pauth");
+      const titleText = orig.title.replace(/<[^>]*>/g, "");
+      const authText = orig.auth.replace(/<[^>]*>/g, "");
+      const tags = (p.dataset.tags || "").replace(/[_,]/g, " ");
+      const venue = p.querySelector(".venue-badge")?.textContent || "";
+
+      const haystack = (titleText + " " + authText + " " + tags + " " + venue).toLowerCase();
+
+      if (!q || haystack.includes(q)) {
+        p.classList.remove("search-hidden");
+        titleEl.innerHTML = highlightText(orig.title, q);
+        authEl.innerHTML = highlightText(orig.auth, q);
+      } else {
+        p.classList.add("search-hidden");
+        titleEl.innerHTML = orig.title;
+        authEl.innerHTML = orig.auth;
+      }
+    });
+  });
+})();
+
+// ===== Citation Modal =====
+(function () {
+  let bibData = null;
+  const modal = document.createElement("div");
+  modal.id = "citeModal";
+  modal.innerHTML =
+    '<div class="cite-overlay"></div>' +
+    '<div class="cite-box">' +
+    '  <div class="cite-header"><span>BibTeX</span><button class="cite-close">&times;</button></div>' +
+    '  <pre class="cite-content"></pre>' +
+    '  <button class="cite-copy">Copy</button>' +
+    "</div>";
+  document.body.appendChild(modal);
+
+  const overlay = modal.querySelector(".cite-overlay");
+  const closeBtn = modal.querySelector(".cite-close");
+  const copyBtn = modal.querySelector(".cite-copy");
+  const content = modal.querySelector(".cite-content");
+
+  function hide() { modal.classList.remove("show"); }
+  overlay.addEventListener("click", hide);
+  closeBtn.addEventListener("click", hide);
+  copyBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(content.textContent).then(() => {
+      copyBtn.textContent = "Copied!";
+      setTimeout(() => { copyBtn.textContent = "Copy"; }, 1500);
+    });
+  });
+
+  function parseBib(text) {
+    const entries = {};
+    const re = /@\w+\{([^,]+),([\s\S]*?)(?=\n@|\n*$)/g;
+    let m;
+    while ((m = re.exec(text)) !== null) {
+      const key = m[1].trim();
+      entries[key] = m[0].trim();
+    }
+    return entries;
+  }
+
+  fetch("assets/citations.bib")
+    .then((r) => r.text())
+    .then((t) => { bibData = parseBib(t); })
+    .catch(() => {});
+
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".cite-btn");
+    if (!btn) return;
+    e.preventDefault();
+    const key = btn.dataset.cite;
+    if (!bibData || !bibData[key]) {
+      content.textContent = "Citation not found.";
+    } else {
+      content.textContent = bibData[key];
+    }
+    modal.classList.add("show");
+  });
+})();

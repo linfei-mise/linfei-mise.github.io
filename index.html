@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fei Lin</title>
+  <meta name="description" content="Fei Lin - Academic Homepage" />
+  <link rel="icon" type="image/png" href="assets/ai-technology.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css?v=4" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="brand"><span class="brand-dot"></span><span>Fei Lin</span></div>
+    <div class="like-container" id="likeContainer">
+      <button class="like-btn" id="likeBtn" aria-label="Like"><i class="fa-solid fa-heart" id="likeIcon"></i></button>
+      <span class="like-count" id="likeCount">0</span>
+    </div>
+    <nav class="nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#service">Service</a>
+      <a href="#publications">Publications</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+
+    <!-- ===== About ===== -->
+    <div class="card" id="about">
+      <div class="hero">
+        <div class="photo"><img src="assets/feilin.jpg" alt="portrait" /></div>
+        <div class="intro">
+          <h1>Fei Lin (林飞)</h1>
+          <div class="subtitle">
+            <span>Ph.D. Student</span><span class="dot-sep"></span>
+            <span>Macau University of Science and Technology</span>
+          </div>
+          <p class="bio">
+            Welcome. I am <b>Fei Lin</b>, a 3rd-year Ph.D. student in Intelligence Science and Systems at the Department of Engineering Science, Faculty of Innovation Engineering, <b>Macau University of Science and Technology (MUST)</b>. I am also affiliated with the <b>Macau Institute of System Engineering (MISE)</b>. I am a member of <b>AAAS</b>, <b>IEEE</b>, <b>AIChE</b>, and <b>ACM</b>. I am fortunate to be supervised by Distinguished Prof. <b>Fei-Yue Wang</b> (AAAS Fellow, ASME Fellow, IFAC Fellow, INCOSE Fellow, IEEE Fellow).
+          </p>
+          <p class="bio">
+            My research centers on <b>AI for Science (AI4S)</b>, with primary focus on: <b>AI for Drug Discovery</b>; <b>AI for Covalent Organic Frameworks (COF) / Metal-Organic Frameworks (MOF)</b>; and <b>Self-driving Laboratories (SDL)</b> — integrating embodied intelligence into chemistry and materials science through Vision-Language-Action models for autonomous wet-lab experimentation. I have also been continuously engaged in research on <b>Parallel Intelligence</b>.
+          </p>
+          <p class="bio">
+            Previously, I worked on <b>Embodied Agents</b> and <b>Agentic Workflows</b>, primarily applied to UAV autonomous perception and action. During my Master's at MUST, I focused on medical image segmentation for interventional puncture surgery robots. I co-founded <b><a href="https://github.com/DeepYoke" target="_blank" rel="noopener">DeepYoke</a></b>, a non-profit AI4S research initiative, with collaborators from SJTU, Shanghai AI Lab, CASIA, ZGC Academy, and IPE-CAS.
+          </p>
+          <div class="link-group">
+            <a class="link-btn primary" href="https://scholar.google.com.hk/citations?user=5-Dsdx8AAAAJ&hl=zh-CN" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i>Google Scholar</a>
+            <a class="link-btn" href="https://github.com/linfei-mise" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
+            <a class="link-btn" href="mailto:feilin@ieee.org"><i class="fa-solid fa-envelope"></i>Email</a>
+            <a class="link-btn" href="https://orcid.org/0000-0002-3781-9269" target="_blank" rel="noopener"><i class="fa-brands fa-orcid"></i>ORCID</a>
+          </div>
+          <div class="affiliations" aria-label="Affiliations">
+            <div class="affiliation"><div class="logo-box"><img src="assets/logos/must.png" alt="MUST"/></div><span class="label">Ph.D. & M.Sc.</span></div>
+            <div class="affiliation"><div class="logo-box"><img src="assets/logos/casia.jpg" alt="CASIA"/></div><span class="label">Internship</span></div>
+            <div class="affiliation"><div class="logo-box"><img src="assets/logos/pku.png" alt="PKU"/></div><span class="label">Summer School</span></div>
+            <div class="affiliation"><div class="logo-box"><img src="assets/logos/deepyoke_transparent.png" alt="DeepYoke"/></div><span class="label">Co-founder</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== News & Updates ===== -->
+    <div class="card" id="news">
+      <h2 class="card-title"><i class="fa-solid fa-bullhorn icon"></i>News &amp; Updates</h2>
+      <ul class="timeline">
+        <li class="timeline-item"><div class="time">2023-09</div><div class="desc">Started Ph.D. in <b>Intelligence Science and Systems</b> at <b>Macau University of Science and Technology</b>, focusing on Embodied Intelligence and AI for Science (AI4S).</div></li>
+        <li class="timeline-item"><div class="time">2021-09</div><div class="desc">Started M.Sc. in <b>Intelligent Technology</b> at <b>Macau University of Science and Technology</b>, focusing on Medical Image Segmentation and Interventional Puncture Surgery Robots.</div></li>
+      </ul>
+    </div>
+
+    <!-- ===== Academic Service ===== -->
+    <div class="card" id="service">
+      <h2 class="card-title"><i class="fa-solid fa-handshake icon"></i>Academic Service</h2>
+      <ul class="service-list">
+        <li><b>Reviewer:</b> KDD, IFAC WC, IEEE TCSS, IEEE SMC, IEEE IV, IEEE ITSC, IEEE TIV, IEEE DTPI, IEEE MESA</li>
+        <li><b>Associate Editor:</b> IEEE IV, IEEE MESA, IFAC WC</li>
+        <li><b>Publication Chair:</b> IEEE MESA 2025 <a href="https://ieee-mesa.org/2025/committees/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+        <li><b>Session Chair:</b> IEEE SOLI, IEEE MESA, IEEE DTPI</li>
+        <li><b>Invited Talk:</b> National Key Laboratory of Digital Modeling and Simulation, Department of System Simulation Engineering & "Metaverse" Digital-Intelligence Simulation Club Academic Forum, National University of Defense Technology</li>
+      </ul>
+    </div>
+
+    <!-- ===== Publications ===== -->
+    <div class="card" id="publications">
+      <h2 class="card-title"><i class="fa-solid fa-book icon"></i>Publications
+        <div class="pub-search-wrap"><input type="text" id="pubSearch" class="pub-search" placeholder="Search publications..." aria-label="Search publications" /><i class="fa-solid fa-magnifying-glass pub-search-icon"></i></div>
+      </h2>
+      <div class="filter-bar" role="toolbar" aria-label="Publication filters">
+        <button class="filter-tag" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-tag" data-filter="ai4drug" aria-pressed="false">AI for Drug Discovery</button>
+        <button class="filter-tag" data-filter="embodied_uav" aria-pressed="false">Embodied Agent &amp; UAV</button>
+        <button class="filter-tag" data-filter="parallel_intelligence" aria-pressed="false">Parallel Intelligence</button>
+        <button class="filter-tag" data-filter="blockchain_dao" aria-pressed="false">Blockchain &amp; DAO</button>
+        <button class="filter-tag" data-filter="remote_sensing" aria-pressed="false">Remote Sensing</button>
+      </div>
+      <div class="pub-list" id="pubList">
+
+        <!-- ==================== 2026 ==================== -->
+
+        <article class="pub" data-tags="remote_sensing">
+          <div class="thumb"><img src="assets/papers/earth_adapter.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Earth-Adapter: Bridge the Geospatial Domain Gaps with Mixture of Frequency Adaptation</div>
+            <div class="pauth">Xiaoxing Hu, Ziyang Gong, Yupei Wang, Yuru Jia, <b>Fei Lin</b>, Dexiang Gao, Ke An, Jianhong Han, Zhuoran Sun, Gen Luo, Xue Yang</div>
+            <div class="pmeta"><span class="venue-badge">AAAI 2026</span></div>
+            <div class="plinkline">
+              <a href="https://arxiv.org/pdf/2504.06220?" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a href="https://github.com/VisionXLab/Earth-Adapter" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i>Code</a>
+            
+              <a class="cite-btn" data-cite="hu2025earth"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Remote Sensing</span><span class="tag">PEFT</span></div>
+          </div>
+        </article>
+
+        <!-- ==================== 2025 ==================== -->
+
+        <article class="pub" data-tags="ai4drug">
+          <div class="thumb"><img src="assets/papers/toximol.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?</div>
+            <div class="pauth"><b>Fei Lin</b>, Ziyang Gong, Cong Wang, Tengchao Zhang, Yonglin Tian, Yining Jiang, Ji Dai, Chao Guo, Xiaotong Yu, Xue Yang, Gen Luo, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">arXiv 2025</span><span class="award-badge"><i class="fa-solid fa-flask"></i> DeepYoke</span></div>
+            <div class="plinkline">
+              <a href="https://arxiv.org/pdf/2506.10912" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a href="https://huggingface.co/datasets/DeepYoke/ToxiMol-benchmark" target="_blank" rel="noopener"><i class="fa-solid fa-database"></i>Dataset</a>
+              <a href="https://github.com/DeepYoke/ToxiMol" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i>Code</a>
+            
+              <a class="cite-btn" data-cite="lin2025breaking"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">AI for Drug Discovery</span><span class="tag">Molecular Detoxification</span><span class="tag">Benchmark</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="embodied_uav">
+          <div class="thumb"><img src="assets/papers/uav_survey.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">UAVs Meet LLMs: Overviews and Perspectives Toward Agentic Low-Altitude Mobility</div>
+            <div class="pauth">Yonglin Tian*, <b>Fei Lin*</b>, Yiduo Li, Tengchao Zhang, Qiyao Zhang, Xuan Fu, Jun Huang, Xingyuan Dai, Yutong Wang, Chunwei Tian, Bai Li, Yisheng Lv, Levente Kovács, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">Information Fusion, 2025</span><span class="co-first-badge">* Co-first Author</span></div>
+            <div class="plinkline">
+              <a href="https://arxiv.org/pdf/2501.02341?" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a href="https://github.com/Hub-Tian/UAVs_Meet_LLMs" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i>Project</a>
+            
+              <a class="cite-btn" data-cite="tian2025uavs"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">UAV</span><span class="tag">LLM</span><span class="tag">Survey</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="ai4drug,parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/pdd.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Autonomous Drug Discovery with Parallel Intelligence</div>
+            <div class="pauth"><b>Fei Lin</b>, Jing Yang, Dali Sun, Levente Kovács, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE/CAA J. Automatica Sinica, 2025</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/abstract/document/11131624" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="lin2025autonomous"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">AI for Drug Discovery</span><span class="tag">Parallel Intelligence</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/pmdi.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Parallel Medical Devices and Instruments: Integrating Edge and Cloud Intelligence for Smart Treatment and Health Systems</div>
+            <div class="pauth"><b>Fei Lin</b>, Tommy Gao, Dali Sun, Qinghua Ni, Xianting Ding, Jing Wang, David Wenzhong Gao, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE/CAA J. Automatica Sinica, 2025</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/abstract/document/10946087" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="lin2025parallel"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Parallel Intelligence</span><span class="tag">Medical Devices</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="ai4drug">
+          <div class="thumb"><img src="assets/papers/zkp.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">ToxiEval-ZKP: A Structure-Private Verification Framework for Molecular Toxicity Repair Tasks</div>
+            <div class="pauth"><b>Fei Lin</b>, Tengchao Zhang, Ziyang Gong, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IFAC BIKA 2025</span><span class="award-badge"><i class="fa-solid fa-trophy"></i> Best Paper Award</span><span class="award-badge"><i class="fa-solid fa-flask"></i> DeepYoke</span></div>
+            <div class="plinkline">
+              <a href="https://arxiv.org/pdf/2508.12035" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a href="https://github.com/DeepYoke/ToxiEval-ZKP" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i>Code</a>
+            
+              <a class="cite-btn" data-cite="LIN202536"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">AI for Drug Discovery</span><span class="tag">Zero-Knowledge Proof</span><span class="tag">Trustworthy AI</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="embodied_uav">
+          <div class="thumb"><img src="assets/papers/airvist_2.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">AirVista-II: An Agentic System for Embodied UAVs Toward Dynamic Scene Semantic Understanding</div>
+            <div class="pauth"><b>Fei Lin</b>, Yonglin Tian, Tengchao Zhang, Jun Huang, Sangtian Guan, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE SMC 2025</span></div>
+            <div class="plinkline"><a href="https://arxiv.org/pdf/2504.09583" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="lin2025airvista2"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">UAV</span><span class="tag">Embodied Agent</span><span class="tag">Scene Understanding</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="embodied_uav">
+          <div class="thumb"><img src="assets/papers/talk_less.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Talk Less, Fly Lighter: Autonomous Semantic Compression for UAV Swarm Communication via LLMs</div>
+            <div class="pauth"><b>Fei Lin</b>, Tengchao Zhang, Qinghua Ni, Jun Huang, Siji Ma, Yonglin Tian, Yisheng Lv, Naiqi Wu</div>
+            <div class="pmeta"><span class="venue-badge">IEEE MESA 2025</span><span class="award-badge"><i class="fa-solid fa-trophy"></i> Best Research Award</span></div>
+            <div class="plinkline"><a href="https://arxiv.org/pdf/2508.12043" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="lin2025talkless"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">UAV Swarm</span><span class="tag">Semantic Communication</span><span class="tag">LLM</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="embodied_uav,parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/pivla.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">PiVLA: Vision-Language-Action Based on Parallel Intelligence</div>
+            <div class="pauth"><b>Fei Lin</b>, Tengchao Zhang, Jun Huang, Qinghua Ni, Jingwei Ge, Yonglin Tian</div>
+            <div class="pmeta"><span class="venue-badge">IJICS, 2025</span></div>
+            <div class="plinkline"><a href="https://www.ijics.cn/article/242" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="lin2025pivla"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">VLA</span><span class="tag">Parallel Intelligence</span><span class="tag">Embodied Agent</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/llm_survey.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">LLM Fine-Tuning: Concepts, Opportunities, and Challenges</div>
+            <div class="pauth">Xiao-Kun Wu, Min Chen, Wanyi Li, Rui Wang, Limeng Lu, Jia Liu, Kai Hwang, Yixue Hao, Yanru Pan, Qingguo Meng, Kaibin Huang, Long Hu, Mohsen Guizani, Naipeng Chao, Giancarlo Fortino, <b>Fei Lin</b>, Yonglin Tian, Dusit Niyato, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">Big Data and Cognitive Computing, 2025</span></div>
+            <div class="plinkline"><a href="https://www.mdpi.com/2504-2289/9/4/87" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="wu2025llm"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">LLM</span><span class="tag">Fine-Tuning</span><span class="tag">Survey</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="embodied_uav">
+          <div class="thumb"><img src="assets/papers/vln.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">LogisticsVLN: Vision-Language Navigation for Low-Altitude Terminal Delivery Based on Agentic UAVs</div>
+            <div class="pauth">Xinyuan Zhang, Yonglin Tian, <b>Fei Lin</b>, Yue Liu, Jing Ma, Kornélia Sára Szatmáry, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE ITSC 2025</span></div>
+            <div class="plinkline"><a href="https://arxiv.org/pdf/2505.03460" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="zhang2025logisticsvln"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">UAV</span><span class="tag">Vision-Language Navigation</span><span class="tag">Logistics</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="embodied_uav">
+          <div class="thumb"><img src="assets/papers/coordfield.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">CoordField: Coordination Field for Agentic UAV Task Allocation in Low-Altitude Urban Scenarios</div>
+            <div class="pauth">Tengchao Zhang, Yonglin Tian, <b>Fei Lin</b>, Jun Huang, Patrik P. Süli, Qinghua Ni, Rui Qin, Xiao Wang, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE ITSC 2025</span></div>
+            <div class="plinkline"><a href="https://arxiv.org/pdf/2505.00091" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="zhang2025coordfield"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">UAV Swarm</span><span class="tag">Task Allocation</span><span class="tag">Agentic AI</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/tourism.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Parallel Tourism System with Foundation Models and Decentralized Autonomous Organizations</div>
+            <div class="pauth">Jun Huang, Yonglin Tian, Tengchao Zhang, Qinghua Ni, <b>Fei Lin</b>, Timothy J. Lee, Naiqi Wu, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">Int. J. Tourism Research, 2025</span></div>
+            <div class="plinkline"><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/jtr.70008" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="huang2025parallel"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Parallel Intelligence</span><span class="tag">DAO</span><span class="tag">Foundation Model</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/parallel_theaters.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Parallel Theaters in CPSS: From Shadows of ISDOS to Intelligence of Decision Theaters</div>
+            <div class="pauth">Qinghua Ni, Buday Viktória, <b>Fei Lin</b>, Jun Huang, Levente Kovács, Nan Zheng, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE/CAA J. Automatica Sinica, 2025</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/abstract/document/11036634" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="ni2025parallel"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Parallel Intelligence</span><span class="tag">CPSS</span><span class="tag">Decision Intelligence</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/nursing.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Parallel Nursing: Enhancing Postoperative Nursing with LLM Agent Systems</div>
+            <div class="pauth">Xue Qiao, Jing Wang, Mengmeng Zhang, <b>Fei Lin</b>, Peijun Ye, Qinghua Ni, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE Trans. Computational Social Systems, 2025</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/document/11203945" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="qiao2025parallel"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Parallel Intelligence</span><span class="tag">LLM Agent</span><span class="tag">Healthcare</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/pdfm.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Parallel Deep Foundation Model: A Co-Evolution Framework for Analogical Imagination and Embodied Cognition of Parallel Intelligence</div>
+            <div class="pauth">Yonglin Tian, <b>Fei Lin</b>, Cong Wang, Jingwei Ge, Zhiyao Luo, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IJICS, 2025</span></div>
+            <div class="plinkline"><a href="https://www.ijics.cn/article/184" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="tian2025pdfm"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Parallel Intelligence</span><span class="tag">Foundation Model</span><span class="tag">Embodied Cognition</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/arg.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">From RAG to ARG: Agent Reinforced Generation for Agentic Intelligence</div>
+            <div class="pauth">Jing Yang, Yonglin Tian, <b>Fei Lin</b>, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IJICS, 2025</span></div>
+            <div class="plinkline"><a href="https://www.ijics.cn/article/177" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="yang2025arg"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Agentic Intelligence</span><span class="tag">RAG</span><span class="tag">LLM</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="blockchain_dao">
+          <div class="thumb"><img src="assets/papers/supply_blockchain.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Blockchain-Enabled Supply Chain Resilience: Leveraging Multimodal Large Language Models for Intelligent Automation in the Era of Global Disruptions and Stablecoin Integration</div>
+            <div class="pauth">Jun Huang, <b>Fei Lin</b>, Tengchao Zhang, Qinghua Ni, Yonglin Tian, Naiqi Wu</div>
+            <div class="pmeta"><span class="venue-badge">IFAC BIKA 2025</span></div>
+            <div class="plinkline"><a href="https://www.sciencedirect.com/science/article/pii/S2405896325031556" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="huang2025blockchain"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Blockchain</span><span class="tag">Supply Chain</span><span class="tag">MLLM</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="blockchain_dao,embodied_uav">
+          <div class="thumb"><img src="assets/papers/homeports.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">HomePorts-Based UAV Logistics Delivery System Enabled by Blockchain Intelligence</div>
+            <div class="pauth">Tengchao Zhang, <b>Fei Lin</b>, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IFAC BIKA 2025</span></div>
+            <div class="plinkline"><a href="https://www.sciencedirect.com/science/article/pii/S2405896325031520" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="zhang2025homeports"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">UAV Logistics</span><span class="tag">Blockchain</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="blockchain_dao">
+          <div class="thumb"><img src="assets/papers/journal_dao.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">TRUE DAO-Based Smart Journals for Sustainable Publishing</div>
+            <div class="pauth">Siji Ma, Juanjuan Li, Yuhang Liu, Jun Huang, <b>Fei Lin</b>, Tengchao Zhang, Qinghua Ni, Tai Jiang, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE SMC 2025</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/document/11343685" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="ma2025true"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">DAO</span><span class="tag">Academic Publishing</span></div>
+          </div>
+        </article>
+
+        <!-- ==================== 2024 ==================== -->
+
+        <article class="pub" data-tags="embodied_uav">
+          <div class="thumb"><img src="assets/papers/airvist.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">AirVista: Empowering UAVs with 3D Spatial Reasoning Abilities Through a Multimodal Large Language Model Agent</div>
+            <div class="pauth"><b>Fei Lin</b>, Yonglin Tian, Yunzhe Wang, Tengchao Zhang, Xinyuan Zhang, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE ITSC 2024</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/abstract/document/10919532" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="lin2024airvista"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">UAV</span><span class="tag">MLLM Agent</span><span class="tag">3D Reasoning</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="embodied_uav">
+          <div class="thumb"><img src="assets/papers/logistics.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">LogisticsVISTA: 3D Terminal Delivery Services with UAVs, UGVs and USVs Based on Foundation Models and Scenarios Engineering</div>
+            <div class="pauth">Yonglin Tian*, <b>Fei Lin*</b>, Xinyuan Zhang, Jingwei Ge, Yutong Wang, Xingyuan Dai, Yisheng Lv, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE SOLI 2024</span><span class="co-first-badge">* Co-first Author</span><span class="award-badge"><i class="fa-solid fa-trophy"></i> Best Application Award</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/abstract/document/10956119" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="tian2024logisticsvista"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">UAV</span><span class="tag">Logistics</span><span class="tag">Foundation Model</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="parallel_intelligence,blockchain_dao">
+          <div class="thumb"><img src="assets/papers/pagerbomb.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Securing the Future After PagerBombs: Lifecycle Protection of Smart Devices via Blockchain Intelligence</div>
+            <div class="pauth"><b>Fei Lin</b>, Qinghua Ni, Jing Yang, Juanjuan Li, Nan Zheng, Levente Kovács, Radu Prodan, Mariagrazia Dotoli, Qing-Long Han, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE/CAA J. Automatica Sinica, 2024</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/abstract/document/10759605" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="lin2024securing"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Blockchain</span><span class="tag">Smart Device Security</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="ai4drug,parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/parallel_drug.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Parallel Drug Systems: Framework and Methods Based on Large Language Models and Three Types of Humans</div>
+            <div class="pauth"><b>Fei Lin</b>, Fei-Yue Wang, Yonglin Tian, Xianting Ding, Qinghua Ni, Jing Wang, Le Shen</div>
+            <div class="pmeta"><span class="venue-badge">Chinese J. Intelligent Science and Technology, 2024</span></div>
+            <div class="plinkline"><a class="cite-btn" data-cite="lin2024parallel"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">AI for Drug Discovery</span><span class="tag">Parallel Intelligence</span><span class="tag">LLM</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="blockchain_dao">
+          <div class="thumb"><img src="assets/papers/attention.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Attention Markets of Blockchain-Based Decentralized Autonomous Organizations</div>
+            <div class="pauth">Juanjuan Li, Rui Qin, Sangtian Guan, Wenwen Ding, <b>Fei Lin</b>, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE/CAA J. Automatica Sinica, 2024</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/document/10539352" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="li2024attention"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">DAO</span><span class="tag">Blockchain</span><span class="tag">Attention Markets</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="embodied_uav,parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/driverp.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">DriveRP: RAG and Prompt Engineering Embodied Parallel Driving in Cyber-Physical-Social Spaces</div>
+            <div class="pauth">Jun Huang, Hao Ma, Tengchao Zhang, <b>Fei Lin</b>, Siji Ma, Xiao Wang, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE DTPI 2024</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/document/10778684" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="huang2024driverp"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Parallel Driving</span><span class="tag">RAG</span><span class="tag">CPSS</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="blockchain_dao">
+          <div class="thumb"><img src="assets/papers/quadratic.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Quadratic Funding in Blockchain-Based DAO: Empirical Analysis and Future Prospects</div>
+            <div class="pauth"><b>Fei Lin</b>, Tengchao Zhang, Siji Ma, Jun Huang, Ping Song, Juanjuan Li</div>
+            <div class="pmeta"><span class="venue-badge">IEEE DTPI 2024</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/document/10778792" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="lin2024quadratic"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">DAO</span><span class="tag">Blockchain</span><span class="tag">Quadratic Funding</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="blockchain_dao">
+          <div class="thumb"><img src="assets/papers/dao_publishing.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">A DAOs-Based Publishing System for Advancing Open Access</div>
+            <div class="pauth">Siji Ma, Juanjuan Li, Sangtian Guan, Qinghua Ni, <b>Fei Lin</b>, Tengchao Zhang, Jun Huang, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE DTPI 2024</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/abstract/document/10778643" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="ma2024daos"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">DAO</span><span class="tag">Open Access</span><span class="tag">Academic Publishing</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="blockchain_dao">
+          <div class="thumb"><img src="assets/papers/incentive_mechanism.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">ACP-based Dynamic Incentive Mechanism for Information Sharing in DAO</div>
+            <div class="pauth">Tengchao Zhang, Rui Qin, <b>Fei Lin</b>, Siji Ma</div>
+            <div class="pmeta"><span class="venue-badge">IEEE DTPI 2024</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/abstract/document/10778775" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="zhang2024acp"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">DAO</span><span class="tag">ACP</span><span class="tag">Incentive Mechanism</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="parallel_intelligence,blockchain_dao">
+          <div class="thumb"><img src="assets/papers/financial.png" alt="thumb"></div>
+          <div class="content">
+            <div class="ptitle">Parallel Financial Systems: Towards Governable and Sustainable Intelligent Financial Services</div>
+            <div class="pauth">Sangtian Guan, <b>Fei Lin</b>, Juanjuan Li, Jing Wang, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">J. Cyber-Physical-Social Intelligence, 2024</span></div>
+            <div class="plinkline"><a href="https://cpsi.agist.org/index.php/cpsi/article/view/36" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="guan2024parallel"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Parallel Intelligence</span><span class="tag">Financial Systems</span><span class="tag">DAO</span></div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Visitor Map -->
+      <div style="text-align: center; padding: var(--paddingLG) 0 0 0; margin-top: var(--marginLG);">
+        <h3 style="margin: 0 0 var(--margin) 0; color: var(--colorText); font-size: var(--fontSize);">
+          <i class="fa-solid fa-earth-americas" style="color: var(--colorPrimary);"></i> Visitors
+        </h3>
+        <a href="https://clustrmaps.com/site/1c9de" title="Visit tracker" target="_blank">
+          <img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=300&t=n&d=hFR-3g6IlDmVRlfxWEb6vhuPb0Q0_JWj4gEV0TPY-MA&co=6fbcf2&ct=ffffff" alt="Visitors Map" style="max-width: 100%; border-radius: var(--borderRadiusLG);" />
+        </a>
+        <div style="margin-top: var(--margin);">
+          <img src="https://visitor-badge.laobi.icu/badge?page_id=linfei-mise.github.io" alt="visitor count" style="display: inline-block;" />
+        </div>
+      </div>
+      <div class="footer">
+        <div>Last updated: <span id="lastUpdated">YYYY-MM-DD</span></div>
+        <div>Tip: press <span class="kbd">/</span> to focus filters</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" style="text-align: center; padding: var(--paddingLG) 0;">
+    <div style="color: var(--colorTextTertiary); font-size: var(--fontSizeSm);">
+      Last updated: <span id="lastUpdated">2026-03-07</span> ·
+      <a href="https://github.com/linfei-mise" target="_blank" style="color: var(--colorTextTertiary);"><i class="fa-brands fa-github"></i> Source</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=4"></script>
+</body>
+</html>
