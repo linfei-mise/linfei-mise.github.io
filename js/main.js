@@ -2,14 +2,16 @@
 (function() {
   const DATABASE_URL = 'https://feilin-like-default-rtdb.firebaseio.com';
   const LIKES_PATH = '/likes';
-  const LIKED_KEY = 'fei_lin_has_liked';
+  const LIKED_KEY = 'fei_lin_liked_fb';
   const DEVICE_ID_KEY = 'fei_lin_device_id';
 
   const likeBtn = document.getElementById('likeBtn');
   const likeCount = document.getElementById('likeCount');
-  const likeIcon = document.getElementById('likeIcon');
 
   if (!likeBtn || !likeCount) return;
+
+  localStorage.removeItem('fei_lin_has_liked');
+  localStorage.removeItem('fei_lin_like_count');
 
   function getDeviceId() {
     let deviceId = localStorage.getItem(DEVICE_ID_KEY);
@@ -49,6 +51,7 @@
     try {
       const response = await fetch(`${DATABASE_URL}${LIKES_PATH}/devices/${deviceId}.json`, {
         method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           timestamp: Date.now(),
           userAgent: navigator.userAgent.slice(0, 50)
@@ -58,9 +61,10 @@
         const data = await fetchLikes();
         return data.count;
       }
+      console.error('Like PUT failed:', response.status, await response.text());
       return null;
     } catch (err) {
-      console.error('Failed to add like:', err);
+      console.error('Like network error:', err);
       return null;
     }
   }
@@ -70,9 +74,7 @@
     const deviceId = getDeviceId();
     const isInFirebase = deviceId in devices;
 
-    if (hasLikedLocally() && !isInFirebase) {
-      localStorage.removeItem(LIKED_KEY);
-    } else if (!hasLikedLocally() && isInFirebase) {
+    if (!hasLikedLocally() && isInFirebase) {
       setLikedLocally();
     }
 
@@ -86,23 +88,22 @@
   }
 
   likeBtn.addEventListener('click', async function() {
-    if (hasLikedLocally()) {
-      likeBtn.style.transform = 'scale(0.95)';
-      setTimeout(() => {
-        likeBtn.style.transform = '';
-      }, 150);
-    } else {
-      const newCount = await addLike();
-      if (newCount !== null) {
-        setLikedLocally();
-        likeCount.textContent = newCount;
-        likeBtn.classList.add('liked');
+    const { devices } = await fetchLikes();
+    const deviceId = getDeviceId();
 
-        likeBtn.style.transform = 'scale(1.2)';
-        setTimeout(() => {
-          likeBtn.style.transform = '';
-        }, 200);
-      }
+    if (deviceId in devices) {
+      likeBtn.style.transform = 'scale(0.95)';
+      setTimeout(() => { likeBtn.style.transform = ''; }, 150);
+      return;
+    }
+
+    const newCount = await addLike();
+    if (newCount !== null) {
+      setLikedLocally();
+      likeCount.textContent = newCount;
+      likeBtn.classList.add('liked');
+      likeBtn.style.transform = 'scale(1.2)';
+      setTimeout(() => { likeBtn.style.transform = ''; }, 200);
     }
   });
 
