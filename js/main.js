@@ -1,7 +1,9 @@
 // ===== Like Button Functionality =====
 (function() {
   const LIKED_KEY = 'fei_lin_has_liked';
-  const LIKE_COUNT_KEY = 'fei_lin_like_count';
+  const API_BASE = 'https://abacus.jasoncameron.dev';
+  const NAMESPACE = 'linfei-mise.github.io';
+  const COUNTER_KEY = 'likes';
 
   const likeBtn = document.getElementById('likeBtn');
   const likeCount = document.getElementById('likeCount');
@@ -12,13 +14,7 @@
     return localStorage.getItem(LIKED_KEY) === 'true';
   }
 
-  function getLocalCount() {
-    return parseInt(localStorage.getItem(LIKE_COUNT_KEY) || '0', 10);
-  }
-
-  function updateDisplay() {
-    const count = getLocalCount();
-    const liked = hasLikedLocally();
+  function setDisplay(count, liked) {
     likeCount.textContent = count;
     if (liked) {
       likeBtn.classList.add('liked');
@@ -27,22 +23,47 @@
     }
   }
 
+  function fetchCount() {
+    return fetch(API_BASE + '/get/' + NAMESPACE + '/' + COUNTER_KEY)
+      .then(function(r) {
+        if (r.status === 404) return { value: 0 };
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      })
+      .then(function(data) { return data.value; });
+  }
+
+  function incrementCount() {
+    return fetch(API_BASE + '/hit/' + NAMESPACE + '/' + COUNTER_KEY)
+      .then(function(r) {
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      })
+      .then(function(data) { return data.value; });
+  }
+
+  fetchCount()
+    .then(function(count) { setDisplay(count, hasLikedLocally()); })
+    .catch(function() { setDisplay('–', hasLikedLocally()); });
+
   likeBtn.addEventListener('click', function() {
     if (hasLikedLocally()) {
       likeBtn.style.transform = 'scale(0.95)';
-      setTimeout(() => { likeBtn.style.transform = ''; }, 150);
-    } else {
-      const newCount = getLocalCount() + 1;
-      localStorage.setItem(LIKE_COUNT_KEY, String(newCount));
-      localStorage.setItem(LIKED_KEY, 'true');
-      likeCount.textContent = newCount;
-      likeBtn.classList.add('liked');
-      likeBtn.style.transform = 'scale(1.2)';
-      setTimeout(() => { likeBtn.style.transform = ''; }, 200);
+      setTimeout(function() { likeBtn.style.transform = ''; }, 150);
+      return;
     }
+    incrementCount()
+      .then(function(newCount) {
+        localStorage.setItem(LIKED_KEY, 'true');
+        setDisplay(newCount, true);
+        likeBtn.style.transform = 'scale(1.2)';
+        setTimeout(function() { likeBtn.style.transform = ''; }, 200);
+      })
+      .catch(function() {
+        localStorage.setItem(LIKED_KEY, 'true');
+        setDisplay('–', true);
+      });
   });
-
-  updateDisplay();
 })();
 
 // ===== Publications Filter =====
