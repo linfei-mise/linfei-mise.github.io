@@ -1,20 +1,73 @@
-// ===== Like Button Functionality =====
+// ===== Like Button Functionality with Firebase =====
 (function() {
+  const DATABASE_URL = 'https://feilin-like-default-rtdb.firebaseio.com';
+  const LIKES_PATH = '/likes';
   const LIKED_KEY = 'fei_lin_has_liked';
-  const API_BASE = 'https://abacus.jasoncameron.dev';
-  const NAMESPACE = 'linfei-mise.github.io';
-  const COUNTER_KEY = 'likes';
+  const DEVICE_ID_KEY = 'fei_lin_device_id';
 
   const likeBtn = document.getElementById('likeBtn');
   const likeCount = document.getElementById('likeCount');
+  const likeIcon = document.getElementById('likeIcon');
 
   if (!likeBtn || !likeCount) return;
+
+  function getDeviceId() {
+    let deviceId = localStorage.getItem(DEVICE_ID_KEY);
+    if (!deviceId) {
+      deviceId = 'device_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+      localStorage.setItem(DEVICE_ID_KEY, deviceId);
+    }
+    return deviceId;
+  }
 
   function hasLikedLocally() {
     return localStorage.getItem(LIKED_KEY) === 'true';
   }
 
-  function setDisplay(count, liked) {
+  function setLikedLocally() {
+    localStorage.setItem(LIKED_KEY, 'true');
+  }
+
+  async function fetchLikes() {
+    try {
+      const response = await fetch(`${DATABASE_URL}${LIKES_PATH}.json`);
+      const data = await response.json();
+      if (!data) {
+        return { count: 0, devices: {} };
+      }
+      const devices = data.devices || {};
+      const count = Object.keys(devices).length;
+      return { count, devices };
+    } catch (err) {
+      console.error('Failed to fetch likes:', err);
+      return { count: 0, devices: {} };
+    }
+  }
+
+  async function addLike() {
+    const deviceId = getDeviceId();
+    try {
+      const response = await fetch(`${DATABASE_URL}${LIKES_PATH}/devices/${deviceId}.json`, {
+        method: 'PUT',
+        body: JSON.stringify({
+          timestamp: Date.now(),
+          userAgent: navigator.userAgent.slice(0, 50)
+        })
+      });
+      if (response.ok) {
+        const data = await fetchLikes();
+        return data.count;
+      }
+      return null;
+    } catch (err) {
+      console.error('Failed to add like:', err);
+      return null;
+    }
+  }
+
+  async function updateDisplay() {
+    const { count } = await fetchLikes();
+    const liked = hasLikedLocally();
     likeCount.textContent = count;
     if (liked) {
       likeBtn.classList.add('liked');
@@ -23,47 +76,30 @@
     }
   }
 
-  function fetchCount() {
-    return fetch(API_BASE + '/get/' + NAMESPACE + '/' + COUNTER_KEY)
-      .then(function(r) {
-        if (r.status === 404) return { value: 0 };
-        if (!r.ok) throw new Error(r.status);
-        return r.json();
-      })
-      .then(function(data) { return data.value; });
-  }
-
-  function incrementCount() {
-    return fetch(API_BASE + '/hit/' + NAMESPACE + '/' + COUNTER_KEY)
-      .then(function(r) {
-        if (!r.ok) throw new Error(r.status);
-        return r.json();
-      })
-      .then(function(data) { return data.value; });
-  }
-
-  fetchCount()
-    .then(function(count) { setDisplay(count, hasLikedLocally()); })
-    .catch(function() { setDisplay('–', hasLikedLocally()); });
-
-  likeBtn.addEventListener('click', function() {
+  likeBtn.addEventListener('click', async function() {
     if (hasLikedLocally()) {
       likeBtn.style.transform = 'scale(0.95)';
-      setTimeout(function() { likeBtn.style.transform = ''; }, 150);
-      return;
-    }
-    incrementCount()
-      .then(function(newCount) {
-        localStorage.setItem(LIKED_KEY, 'true');
-        setDisplay(newCount, true);
+      setTimeout(() => {
+        likeBtn.style.transform = '';
+      }, 150);
+    } else {
+      const newCount = await addLike();
+      if (newCount !== null) {
+        setLikedLocally();
+        likeCount.textContent = newCount;
+        likeBtn.classList.add('liked');
+
         likeBtn.style.transform = 'scale(1.2)';
-        setTimeout(function() { likeBtn.style.transform = ''; }, 200);
-      })
-      .catch(function() {
-        localStorage.setItem(LIKED_KEY, 'true');
-        setDisplay('–', true);
-      });
+        setTimeout(() => {
+          likeBtn.style.transform = '';
+        }, 200);
+      }
+    }
   });
+
+  updateDisplay();
+
+  setInterval(updateDisplay, 10000);
 })();
 
 // ===== Publications Filter =====
