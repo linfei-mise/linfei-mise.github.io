@@ -66,7 +66,16 @@
   }
 
   async function updateDisplay() {
-    const { count } = await fetchLikes();
+    const { count, devices } = await fetchLikes();
+    const deviceId = getDeviceId();
+    const isInFirebase = deviceId in devices;
+
+    if (hasLikedLocally() && !isInFirebase) {
+      localStorage.removeItem(LIKED_KEY);
+    } else if (!hasLikedLocally() && isInFirebase) {
+      setLikedLocally();
+    }
+
     const liked = hasLikedLocally();
     likeCount.textContent = count;
     if (liked) {
