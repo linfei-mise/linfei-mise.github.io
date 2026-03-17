@@ -112,12 +112,12 @@
   setInterval(updateDisplay, 10000);
 })();
 
-// ===== Publications Filter =====
-const chips = Array.from(document.querySelectorAll(".filter-tag"));
+// ===== Publications Topic Filter =====
+const topicChips = Array.from(document.querySelectorAll("[data-filter]"));
 const pubs = Array.from(document.querySelectorAll(".pub"));
 
-function setActive(filter) {
-  chips.forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.filter === filter)));
+function setTopicFilter(filter) {
+  topicChips.forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.filter === filter)));
 
   pubs.forEach((p) => {
     const tags = (p.dataset.tags || "")
@@ -127,7 +127,7 @@ function setActive(filter) {
     const show = filter === "all" || tags.includes(filter);
 
     if (show) {
-      p.style.display = "";
+      p.classList.remove("topic-hidden");
       p.style.opacity = "0";
       p.style.transform = "translateY(8px)";
       requestAnimationFrame(() => {
@@ -136,16 +136,68 @@ function setActive(filter) {
         p.style.transform = "translateY(0)";
       });
     } else {
-      p.style.display = "none";
+      p.classList.add("topic-hidden");
     }
   });
 }
 
-chips.forEach((chip) => {
-  chip.addEventListener("click", () => setActive(chip.dataset.filter));
+topicChips.forEach((chip) => {
+  chip.addEventListener("click", () => setTopicFilter(chip.dataset.filter));
 });
 
-setActive("all");
+setTopicFilter("all");
+
+// ===== Publications Role Filter =====
+(function () {
+  var roleChips = Array.from(document.querySelectorAll("[data-role]"));
+  if (!roleChips.length) return;
+
+  pubs.forEach(function (p) {
+    var authEl = p.querySelector(".pauth");
+    if (!authEl) return;
+
+    var authHTML = authEl.innerHTML;
+    var authText = authEl.textContent;
+    var metaEl = p.querySelector(".pmeta");
+    var metaHTML = metaEl ? metaEl.innerHTML : "";
+
+    var roles = [];
+
+    if (/Fei Lin\*/.test(authText)) {
+      roles.push("co-first");
+    } else {
+      var authors = authText.split(",").map(function (a) { return a.trim(); });
+      var idx = authors.findIndex(function (a) { return /Fei Lin/.test(a); });
+      if (idx === 0) roles.push("first");
+      else if (idx === 1) roles.push("second");
+    }
+
+    if (/DeepYoke/.test(metaHTML)) roles.push("deepyoke");
+    if (/fa-trophy/.test(metaHTML)) roles.push("award");
+    if (/Corresponding/.test(metaHTML)) roles.push("corresponding");
+
+    p.dataset.roles = roles.join(",");
+  });
+
+  function setRoleFilter(role) {
+    roleChips.forEach(function (c) {
+      c.setAttribute("aria-pressed", String(c.dataset.role === role));
+    });
+    pubs.forEach(function (p) {
+      var roles = (p.dataset.roles || "").split(",").filter(Boolean);
+      var show = role === "all" || roles.includes(role);
+      if (show) {
+        p.classList.remove("role-hidden");
+      } else {
+        p.classList.add("role-hidden");
+      }
+    });
+  }
+
+  roleChips.forEach(function (chip) {
+    chip.addEventListener("click", function () { setRoleFilter(chip.dataset.role); });
+  });
+})();
 
 // ===== Auto-update Date =====
 document.querySelectorAll("#lastUpdated").forEach((el) => {
@@ -156,7 +208,7 @@ document.querySelectorAll("#lastUpdated").forEach((el) => {
 window.addEventListener("keydown", (e) => {
   if (e.key === "/" && document.activeElement.tagName !== "INPUT") {
     e.preventDefault();
-    chips[0]?.focus();
+    topicChips[0]?.focus();
   }
 });
 

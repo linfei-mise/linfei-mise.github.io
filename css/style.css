@@ -551,6 +551,15 @@ a:hover {
   margin-bottom: var(--margin);
 }
 
+.role-filter-bar {
+  margin-top: calc(-0.5 * var(--margin));
+}
+
+.role-filter-bar .filter-tag i {
+  margin-right: 3px;
+  font-size: 10px;
+}
+
 .filter-tag {
   display: inline-flex;
   align-items: center;
@@ -941,7 +950,9 @@ a:hover {
   pointer-events: none;
 }
 
-.pub.search-hidden {
+.pub.search-hidden,
+.pub.topic-hidden,
+.pub.role-hidden {
   display: none !important;
 }
 
