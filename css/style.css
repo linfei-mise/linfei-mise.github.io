@@ -974,8 +974,16 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: sticky;
-  top: 80px;
+}
+
+.about-layout .news-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-layout .news-scroll {
+  flex: 1;
 }
 
 .about-sidebar .photo {
@@ -998,9 +1006,10 @@ a:hover {
 .identity-info {
   margin: 2px 0;
   font-size: var(--fontSize);
-  color: var(--colorTextSecondary);
+  color: var(--colorText);
   text-align: center;
   line-height: 1.6;
+  white-space: nowrap;
 }
 
 .social-icons {
@@ -1014,21 +1023,20 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--colorFillTertiary);
-  color: var(--colorTextSecondary);
-  font-size: 18px;
   transition: all var(--motionDuration) var(--motionEase);
   text-decoration: none;
 }
 
 .social-icons a:hover {
-  background: var(--colorPrimaryBg);
-  color: var(--colorPrimary);
   transform: scale(1.1);
   text-decoration: none;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  display: block;
+  object-fit: contain;
 }
 
 .sidebar-divider {
