@@ -176,6 +176,17 @@ setTopicFilter("all");
     if (/fa-trophy/.test(metaHTML)) roles.push("award");
     if (/Corresponding/.test(metaHTML)) roles.push("corresponding");
 
+    var venueEl = p.querySelector('.venue-badge');
+    var venueText = venueEl ? venueEl.textContent : '';
+    var isConference = venueText && !/,/.test(venueText);
+    if (isConference) {
+      if (/fa-microphone/.test(metaHTML)) {
+        roles.push("oral");
+      } else {
+        roles.push("poster");
+      }
+    }
+
     p.dataset.roles = roles.join(",");
   });
 
@@ -269,6 +280,39 @@ document.querySelectorAll('.nav a[href^="#"]').forEach((anchor) => {
       }
     });
   });
+})();
+
+// ===== Citations Count =====
+(function () {
+  var el = document.getElementById('citation-count');
+  if (!el) return;
+  fetch('public/citations.json?t=' + new Date().getTime())
+    .then(function (r) {
+      if (!r.ok) throw new Error('not found');
+      return r.json();
+    })
+    .then(function (data) {
+      if (data && data.citations) {
+        el.textContent = data.citations;
+      }
+    })
+    .catch(function () {
+      el.textContent = '--';
+    });
+})();
+
+// ===== News Scroll Hint =====
+(function () {
+  function bindScrollHint(el) {
+    var update = function () {
+      var atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
+      el.dataset.atBottom = String(atBottom);
+    };
+    update();
+    el.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  }
+  document.querySelectorAll('[data-scrollhint]').forEach(bindScrollHint);
 })();
 
 // ===== Citation Modal =====

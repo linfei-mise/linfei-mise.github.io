@@ -32,8 +32,30 @@
 
     <!-- ===== About ===== -->
     <div class="card" id="about">
-      <div class="hero">
-        <div class="photo"><img src="assets/feilin.jpg" alt="portrait" /></div>
+      <div class="about-layout">
+        <aside class="about-sidebar">
+          <div class="photo"><img src="assets/feilin.jpg" alt="portrait" /></div>
+          <p class="identity-info">🎓 3<sup>rd</sup> Year Ph.D. Student @ MUST</p>
+          <p class="identity-info">📮 feilin@ieee.org</p>
+          <div class="social-icons">
+            <a href="mailto:feilin@ieee.org" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://scholar.google.com.hk/citations?user=5-Dsdx8AAAAJ&hl=zh-CN" target="_blank" rel="noopener" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+            <a href="https://github.com/linfei-mise" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://orcid.org/0000-0002-3781-9269" target="_blank" rel="noopener" title="ORCID"><i class="fa-brands fa-orcid"></i></a>
+          </div>
+          <hr class="sidebar-divider">
+          <section class="news-block" id="news">
+            <h3 class="news-title"><i class="fa-solid fa-bullhorn" style="color: var(--colorPrimary); margin-right: 4px;"></i>Latest News</h3>
+            <div class="news-scroll" data-scrollhint>
+              <div class="news-item"><span>[05/2026] One <b>First</b> author paper accepted by <a href="https://kdd2026.kdd.org/" target="_blank" rel="noopener">KDD 2026</a> as <b>Oral</b>.</span></div>
+              <div class="news-item"><span>[06/2025] Non-profit organization <b><a href="https://github.com/DeepYoke" target="_blank" rel="noopener">DeepYoke</a></b> founded. <i>"Where algorithms meet atoms, where intelligence illuminates discovery."</i></span></div>
+              <div class="news-item"><span>[09/2023] Joined <b>CASIA</b> State Key Laboratory as a research intern.</span></div>
+              <div class="news-item"><span>[09/2023] Started Ph.D. in <b>Intelligence Science and Systems</b> at <b>MUST</b>.</span></div>
+              <div class="news-item"><span>[06/2023] Visiting study at <b>Peking University</b> on Spatiotemporal Intelligence.</span></div>
+              <div class="news-item"><span>[09/2021] Started M.Sc. in <b>Intelligent Technology</b> at <b>MUST</b>.</span></div>
+            </div>
+          </section>
+        </aside>
         <div class="intro">
           <h1>Fei Lin (林飞)</h1>
           <div class="subtitle">
@@ -49,12 +71,6 @@
           <p class="bio">
             Previously, I worked on <b>Embodied Agents</b> and <b>Agentic Workflows</b>, primarily applied to UAV autonomous perception and action. During my Master's at MUST, I focused on medical image segmentation for interventional puncture surgery robots. I co-founded <b><a href="https://github.com/DeepYoke" target="_blank" rel="noopener">DeepYoke</a></b>, a non-profit AI4S research initiative, with collaborators from SJTU, Shanghai AI Lab, CASIA, ZGC Academy, and IPE-CAS.
           </p>
-          <div class="link-group">
-            <a class="link-btn primary" href="https://scholar.google.com.hk/citations?user=5-Dsdx8AAAAJ&hl=zh-CN" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i>Google Scholar</a>
-            <a class="link-btn" href="https://github.com/linfei-mise" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
-            <a class="link-btn" href="mailto:feilin@ieee.org"><i class="fa-solid fa-envelope"></i>Email</a>
-            <a class="link-btn" href="https://orcid.org/0000-0002-3781-9269" target="_blank" rel="noopener"><i class="fa-brands fa-orcid"></i>ORCID</a>
-          </div>
           <div class="affiliations" aria-label="Affiliations">
             <div class="affiliation"><div class="logo-box"><img src="assets/logos/must.png" alt="MUST"/></div><span class="label">Ph.D. & M.Sc.</span></div>
             <div class="affiliation"><div class="logo-box"><img src="assets/logos/casia.jpg" alt="CASIA"/></div><span class="label">Internship</span></div>
@@ -63,18 +79,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- ===== News & Updates ===== -->
-    <div class="card" id="news">
-      <h2 class="card-title"><i class="fa-solid fa-bullhorn icon"></i>News &amp; Updates</h2>
-      <ul class="timeline">
-        <li class="timeline-item"><div class="time">2025-06</div><div class="desc">Non-profit organization <b>DeepYoke</b> founded. <i>"Where algorithms meet atoms, where intelligence illuminates discovery, where language bridges knowledge and practice — this is DeepYoke."</i></div></li>
-        <li class="timeline-item"><div class="time">2023-09</div><div class="desc">Joined the <b>State Key Laboratory for Management and Control of Complex Systems</b>, <b>Institute of Automation, Chinese Academy of Sciences (CASIA)</b> as a research intern (ongoing).</div></li>
-        <li class="timeline-item"><div class="time">2023-09</div><div class="desc">Started Ph.D. in <b>Intelligence Science and Systems</b> at <b>Macau University of Science and Technology</b>, focusing on Parallel Intelligence, Embodied Intelligence, and AI for Science (AI4S).</div></li>
-        <li class="timeline-item"><div class="time">2023-06</div><div class="desc">Visiting study at <b>Peking University</b> on BDS-based Spatiotemporal Intelligence and Self-driving Technology.</div></li>
-        <li class="timeline-item"><div class="time">2021-09</div><div class="desc">Started M.Sc. in <b>Intelligent Technology</b> at <b>Macau University of Science and Technology</b>, focusing on Parallel Vision, Medical Image Segmentation, and Interventional Puncture Surgery Robots.</div></li>
-      </ul>
     </div>
 
     <!-- ===== Academic Service ===== -->
@@ -92,6 +96,7 @@
     <!-- ===== Publications ===== -->
     <div class="card" id="publications">
       <h2 class="card-title"><i class="fa-solid fa-book icon"></i>Publications
+        <a href="https://scholar.google.com.hk/citations?user=5-Dsdx8AAAAJ&hl=zh-CN" target="_blank" rel="noopener" class="citation-badge">📊 <span id="citation-count">--</span> Citations</a>
         <div class="pub-search-wrap"><input type="text" id="pubSearch" class="pub-search" placeholder="Search publications..." aria-label="Search publications" /><i class="fa-solid fa-magnifying-glass pub-search-icon"></i></div>
       </h2>
       <div class="filter-bar" role="toolbar" aria-label="Publication filters">
@@ -110,6 +115,8 @@
         <button class="filter-tag" data-role="corresponding" aria-pressed="false"><i class="fa-solid fa-envelope"></i> Corresponding</button>
         <button class="filter-tag" data-role="deepyoke" aria-pressed="false"><i class="fa-solid fa-flask"></i> DeepYoke</button>
         <button class="filter-tag" data-role="award" aria-pressed="false"><i class="fa-solid fa-trophy"></i> Award</button>
+        <button class="filter-tag" data-role="oral" aria-pressed="false"><i class="fa-solid fa-microphone"></i> Oral</button>
+        <button class="filter-tag" data-role="poster" aria-pressed="false"><i class="fa-solid fa-chalkboard"></i> Poster</button>
       </div>
       <div class="pub-list" id="pubList">
 
@@ -192,7 +199,7 @@
           <div class="content">
             <div class="ptitle">ToxiEval-ZKP: A Structure-Private Verification Framework for Molecular Toxicity Repair Tasks</div>
             <div class="pauth"><b>Fei Lin</b>, Tengchao Zhang, Ziyang Gong, Fei-Yue Wang</div>
-            <div class="pmeta"><span class="venue-badge">IFAC BIKA 2025</span><span class="award-badge"><i class="fa-solid fa-trophy"></i> Best Paper Award</span><span class="award-badge"><i class="fa-solid fa-flask"></i> DeepYoke</span></div>
+            <div class="pmeta"><span class="venue-badge">IFAC BIKA 2025</span><span class="award-badge"><i class="fa-solid fa-microphone"></i> Oral</span><span class="award-badge"><i class="fa-solid fa-trophy"></i> Best Paper Award</span><span class="award-badge"><i class="fa-solid fa-flask"></i> DeepYoke</span></div>
             <div class="plinkline">
               <a href="https://arxiv.org/pdf/2508.12035" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
               <a href="https://github.com/DeepYoke/ToxiEval-ZKP" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i>Code</a>
@@ -219,7 +226,7 @@
           <div class="content">
             <div class="ptitle">Talk Less, Fly Lighter: Autonomous Semantic Compression for UAV Swarm Communication via LLMs</div>
             <div class="pauth"><b>Fei Lin</b>, Tengchao Zhang, Qinghua Ni, Jun Huang, Siji Ma, Yonglin Tian, Yisheng Lv, Naiqi Wu</div>
-            <div class="pmeta"><span class="venue-badge">IEEE MESA 2025</span><span class="award-badge"><i class="fa-solid fa-trophy"></i> Best Research Award</span></div>
+            <div class="pmeta"><span class="venue-badge">IEEE MESA 2025</span><span class="award-badge"><i class="fa-solid fa-microphone"></i> Oral</span><span class="award-badge"><i class="fa-solid fa-trophy"></i> Best Research Award</span></div>
             <div class="plinkline"><a href="https://arxiv.org/pdf/2508.12043" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
               <a class="cite-btn" data-cite="lin2025talkless"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
             <div class="ptags"><span class="tag">UAV Swarm</span><span class="tag">Semantic Communication</span><span class="tag">LLM</span></div>
@@ -498,9 +505,8 @@
         <h3 style="margin: 0 0 var(--margin) 0; color: var(--colorText); font-size: var(--fontSize);">
           <i class="fa-solid fa-earth-americas" style="color: var(--colorPrimary);"></i> Visitors
         </h3>
-        <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ede7e7&w=600&t=n&d=v8V1cJvpqgdGJil5u6AFX6iAl2h3sfAU8vsLPNy074Q&co=88b6d6'></script>
-        <div style="margin-top: var(--margin);">
-          <img src="https://visitor-badge.laobi.icu/badge?page_id=linfei-mise.github.io" alt="visitor count" style="display: inline-block;" />
+        <div style="width: 400px; height: 400px; margin: 0 auto;">
+          <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=v8V1cJvpqgdGJil5u6AFX6iAl2h3sfAU8vsLPNy074Q"></script>
         </div>
       </div>
       <div class="footer">

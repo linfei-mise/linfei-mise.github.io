@@ -1,0 +1,41 @@
+name: Update Google Scholar Citations
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-citations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch from SerpApi and extract citations
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: |
+          curl -s "https://serpapi.com/search.json?engine=google_scholar_author&author_id=5-Dsdx8AAAAJ&api_key=${SERPAPI_KEY}" > temp.json
+
+          CITATIONS=$(jq -r '.cited_by.table[0].citations.all' temp.json)
+
+          if [ "$CITATIONS" == "null" ] || [ -z "$CITATIONS" ]; then
+            echo "Failed to fetch citation count"
+            cat temp.json
+            exit 1
+          fi
+
+          echo "Citations: $CITATIONS"
+          mkdir -p public
+          echo "{\"citations\": $CITATIONS}" > public/citations.json
+          cat public/citations.json
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          mkdir -p public
+          git add -f public/citations.json
+          git diff --staged --quiet || git commit -m "Auto-update citations count"
+          git push
