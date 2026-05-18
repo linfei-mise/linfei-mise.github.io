@@ -338,7 +338,7 @@ a:hover {
   color: var(--colorText);
   font-size: var(--fontSize);
   line-height: 1.8;
-  margin: 0 0 var(--marginLG);
+  margin: 0 0 var(--margin);
 }
 
 /* ===== Link Buttons ===== */
@@ -390,9 +390,10 @@ a:hover {
 /* ===== Affiliations ===== */
 .affiliations {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: var(--margin);
-  padding-top: var(--paddingSM);
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: var(--marginSM);
+  padding-top: var(--margin);
+  margin-top: 20px;
   border-top: 1px solid var(--colorBorderSecondary);
 }
 
@@ -400,9 +401,9 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--marginXS);
+  gap: 4px;
   text-align: center;
-  padding: var(--paddingSM) var(--paddingXS);
+  padding: var(--paddingXS) 4px;
   border-radius: var(--borderRadiusLG);
   border: 1px solid transparent;
   transition: all var(--motionDuration) var(--motionEase);
@@ -415,8 +416,8 @@ a:hover {
 }
 
 .affiliation .logo-box {
-  width: 80px;
-  height: 80px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1054,7 +1055,10 @@ a:hover {
   max-height: 200px;
   overflow-y: auto;
   position: relative;
-  padding-right: 10px;
+  padding: 8px 10px 8px 12px;
+  background: var(--colorFillQuaternary);
+  border: 1px solid var(--colorBorderSecondary);
+  border-radius: var(--borderRadius);
 }
 
 .news-scroll::-webkit-scrollbar {
@@ -1112,16 +1116,17 @@ a:hover {
 /* ===== Service Block (in About card) ===== */
 .service-block {
   width: 100%;
-  margin-top: var(--marginLG);
-  padding-top: var(--paddingSM);
-  border-top: 1px dashed var(--colorBorderSecondary);
+  margin-top: 20px;
 }
 
 .service-scroll {
-  max-height: 180px;
+  max-height: 110px;
   overflow-y: auto;
   position: relative;
-  padding-right: 10px;
+  padding: 8px 10px 8px 12px;
+  background: var(--colorFillQuaternary);
+  border: 1px solid var(--colorBorderSecondary);
+  border-radius: var(--borderRadius);
 }
 
 .service-scroll::-webkit-scrollbar {
