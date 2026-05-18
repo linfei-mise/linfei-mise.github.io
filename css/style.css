@@ -968,13 +968,14 @@ a:hover {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: var(--paddingXL);
-  align-items: start;
+  align-items: stretch;
 }
 
 .about-sidebar {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 0;
 }
 
 .about-sidebar .photo {
@@ -1040,6 +1041,10 @@ a:hover {
 /* ===== Latest News Block ===== */
 .news-block {
   width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .news-title {
@@ -1052,7 +1057,8 @@ a:hover {
 }
 
 .news-scroll {
-  max-height: 200px;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   position: relative;
   padding: 8px 10px 8px 12px;
@@ -1120,7 +1126,7 @@ a:hover {
 }
 
 .service-scroll {
-  max-height: 110px;
+  max-height: 80px;
   overflow-y: auto;
   position: relative;
   padding: 8px 10px 8px 12px;
@@ -1196,6 +1202,7 @@ a:hover {
 @media (max-width: 720px) {
   .about-layout {
     grid-template-columns: 1fr;
+    align-items: start;
   }
 
   .about-sidebar {
