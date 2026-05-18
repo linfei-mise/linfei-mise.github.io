@@ -1109,6 +1109,52 @@ a:hover {
   color: var(--colorPrimary);
 }
 
+/* ===== Service Block (in About card) ===== */
+.service-block {
+  width: 100%;
+  margin-top: var(--marginLG);
+  padding-top: var(--paddingSM);
+  border-top: 1px dashed var(--colorBorderSecondary);
+}
+
+.service-scroll {
+  max-height: 180px;
+  overflow-y: auto;
+  position: relative;
+  padding-right: 10px;
+}
+
+.service-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.service-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.service-scroll::-webkit-scrollbar-thumb {
+  background: var(--colorBorderSecondary);
+  border-radius: 2px;
+}
+
+.service-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--colorBorder);
+}
+
+.service-scroll[data-at-bottom="false"]::after {
+  content: "⌄";
+  position: sticky;
+  bottom: 0;
+  display: block;
+  text-align: center;
+  padding: 4px 0;
+  background: linear-gradient(transparent, var(--colorBgContainer));
+  color: var(--colorTextTertiary);
+  font-size: 14px;
+  animation: scrollBounce 1.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
 /* ===== Citation Badge ===== */
 .citation-badge {
   display: inline-flex;
