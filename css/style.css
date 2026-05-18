@@ -976,16 +976,6 @@ a:hover {
   align-items: center;
 }
 
-.about-layout .news-block {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.about-layout .news-scroll {
-  flex: 1;
-}
-
 .about-sidebar .photo {
   width: 200px;
   height: 260px;
@@ -1061,7 +1051,7 @@ a:hover {
 }
 
 .news-scroll {
-  max-height: 330px;
+  max-height: 200px;
   overflow-y: auto;
   position: relative;
   padding-right: 10px;
