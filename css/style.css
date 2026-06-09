@@ -78,6 +78,16 @@
 
   /* Layout */
   --maxWidth: 1000px;
+  --aboutPhotoWidth: 200px;
+  --aboutPhotoWidthMobile: 160px;
+  --aboutIdentityFontSize: 12.25px;
+  --aboutIdentityFontSizeMobile: 9.5px;
+  --aboutSocialIconSize: 34px;
+  --aboutSocialIconGap: 7.5px;
+  --aboutNewsScrollHeight: 439.046875px;
+  --aboutNewsScrollMinHeight: 320px;
+  --aboutServiceBlockHeight: 255.640625px;
+  --aboutServiceBlockMinHeight: 220px;
 
   /* Motion */
   --motionDuration: 0.2s;
@@ -408,17 +418,25 @@ a:hover {
   flex-direction: column;
   align-items: center;
   gap: 4px;
+  color: var(--colorText);
   text-align: center;
   padding: var(--paddingXS) 4px;
   border-radius: var(--borderRadiusLG);
   border: 1px solid transparent;
   transition: all var(--motionDuration) var(--motionEase);
   cursor: default;
+  text-decoration: none;
+}
+
+.affiliation[href] {
+  cursor: pointer;
 }
 
 .affiliation:hover {
   background: var(--colorFillQuaternary);
   border-color: var(--colorBorderSecondary);
+  color: var(--colorText);
+  text-decoration: none;
 }
 
 .affiliation .logo-box {
@@ -985,7 +1003,7 @@ a:hover {
 }
 
 .about-sidebar .photo {
-  width: 200px;
+  width: var(--aboutPhotoWidth);
   height: 260px;
   border-radius: var(--borderRadiusLG);
   overflow: hidden;
@@ -1002,18 +1020,22 @@ a:hover {
 }
 
 .identity-info {
+  width: var(--aboutPhotoWidth);
+  max-width: var(--aboutPhotoWidth);
   margin: 2px 0;
-  font-size: var(--fontSize);
+  font-size: var(--aboutIdentityFontSize);
   color: var(--colorText);
   text-align: center;
-  line-height: 1.6;
+  line-height: 1.55;
   white-space: nowrap;
 }
 
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: var(--aboutSocialIconGap);
+  width: 100%;
+  max-width: var(--aboutPhotoWidth);
   margin-top: var(--marginSM);
 }
 
@@ -1021,6 +1043,9 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 var(--aboutSocialIconSize);
+  width: var(--aboutSocialIconSize);
+  height: var(--aboutSocialIconSize);
   transition: all var(--motionDuration) var(--motionEase);
   text-decoration: none;
 }
@@ -1031,8 +1056,8 @@ a:hover {
 }
 
 .social-icons img {
-  width: 40px;
-  height: 40px;
+  width: var(--aboutSocialIconSize);
+  height: var(--aboutSocialIconSize);
   display: block;
   object-fit: contain;
 }
@@ -1047,7 +1072,7 @@ a:hover {
 /* ===== Latest News Block ===== */
 .news-block {
   width: 100%;
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   min-height: 0;
@@ -1063,7 +1088,8 @@ a:hover {
 }
 
 .news-scroll {
-  flex: 1;
+  flex: 0 0 var(--aboutNewsScrollHeight);
+  height: var(--aboutNewsScrollHeight);
   min-height: 0;
   overflow-y: auto;
   position: relative;
@@ -1090,7 +1116,7 @@ a:hover {
   background: var(--colorBorder);
 }
 
-.news-scroll[data-at-bottom="false"]::after {
+.news-scroll[data-scrollable="true"][data-at-bottom="false"]::after {
   content: "⌄";
   position: sticky;
   bottom: 0;
@@ -1129,7 +1155,8 @@ a:hover {
 .service-block {
   width: 100%;
   margin-top: 20px;
-  flex: 1;
+  flex: 0 0 var(--aboutServiceBlockHeight);
+  height: var(--aboutServiceBlockHeight);
   display: flex;
   flex-direction: column;
   min-height: 0;
@@ -1163,7 +1190,7 @@ a:hover {
   background: var(--colorBorder);
 }
 
-.service-scroll[data-at-bottom="false"]::after {
+.service-scroll[data-scrollable="true"][data-at-bottom="false"]::after {
   content: "⌄";
   position: sticky;
   bottom: 0;
@@ -1222,12 +1249,29 @@ a:hover {
   }
 
   .about-sidebar .photo {
-    width: 160px;
+    width: var(--aboutPhotoWidthMobile);
     height: 210px;
   }
 
+  .identity-info {
+    width: var(--aboutPhotoWidthMobile);
+    max-width: var(--aboutPhotoWidthMobile);
+    font-size: var(--aboutIdentityFontSizeMobile);
+  }
+
   .news-scroll {
+    height: 200px;
+    flex-basis: 200px;
     max-height: 200px;
+  }
+
+  .service-block {
+    height: auto;
+    flex-basis: auto;
+  }
+
+  .service-scroll {
+    flex: 0 0 auto;
   }
 
   .citation-badge {
@@ -1236,4 +1280,3 @@ a:hover {
     margin-top: var(--marginXS);
   }
 }
-

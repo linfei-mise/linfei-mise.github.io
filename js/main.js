@@ -172,7 +172,7 @@ setTopicFilter("all");
       else if (idx === 1) roles.push("second");
     }
 
-    if (/DeepYoke/.test(metaHTML)) roles.push("deepyoke");
+    if (/HydroSophy/.test(metaHTML)) roles.push("deepyoke");
     if (/fa-trophy/.test(metaHTML)) roles.push("award");
     if (/Corresponding/.test(metaHTML)) roles.push("corresponding");
 
@@ -301,11 +301,117 @@ document.querySelectorAll('.nav a[href^="#"]').forEach((anchor) => {
     });
 })();
 
+// ===== About Section Height Alignment =====
+(function () {
+  var desktopQuery = window.matchMedia('(min-width: 721px)');
+  var rootStyle = getComputedStyle(document.documentElement);
+  var maxNewsHeight = parseFloat(rootStyle.getPropertyValue('--aboutNewsScrollHeight')) || 439;
+  var minNewsHeight = parseFloat(rootStyle.getPropertyValue('--aboutNewsScrollMinHeight')) || 320;
+  var minServiceHeight = parseFloat(rootStyle.getPropertyValue('--aboutServiceBlockMinHeight')) || 220;
+  var frameId = null;
+
+  function clearInlineHeights(newsScroll, serviceBlock, serviceScroll) {
+    newsScroll.style.height = '';
+    newsScroll.style.flexBasis = '';
+    serviceBlock.style.height = '';
+    serviceBlock.style.flexBasis = '';
+    if (serviceScroll) {
+      serviceScroll.style.height = '';
+      serviceScroll.style.flexBasis = '';
+    }
+  }
+
+  function prepareAutoMeasurement(newsScroll, serviceBlock, serviceScroll) {
+    newsScroll.style.height = 'auto';
+    newsScroll.style.flexBasis = 'auto';
+    serviceBlock.style.height = 'auto';
+    serviceBlock.style.flexBasis = 'auto';
+    serviceScroll.style.height = 'auto';
+    serviceScroll.style.flexBasis = 'auto';
+  }
+
+  function px(value) {
+    return parseFloat(value) || 0;
+  }
+
+  function updateScrollHintState(el) {
+    var scrollable = el.scrollHeight > el.clientHeight + 2;
+    var atBottom = !scrollable || el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
+    el.dataset.scrollable = String(scrollable);
+    el.dataset.atBottom = String(atBottom);
+  }
+
+  function syncAboutHeights() {
+    var newsScroll = document.querySelector('.news-scroll');
+    var serviceBlock = document.querySelector('.service-block');
+    var serviceTitle = serviceBlock && serviceBlock.querySelector('.news-title');
+    var serviceScroll = document.querySelector('.service-scroll');
+
+    if (!newsScroll || !serviceBlock || !serviceTitle || !serviceScroll) return;
+
+    if (!desktopQuery.matches) {
+      clearInlineHeights(newsScroll, serviceBlock, serviceScroll);
+      return;
+    }
+
+    prepareAutoMeasurement(newsScroll, serviceBlock, serviceScroll);
+    serviceScroll.dataset.scrollable = 'false';
+    serviceScroll.dataset.atBottom = 'true';
+
+    var newsTop = newsScroll.getBoundingClientRect().top + window.scrollY;
+    var serviceTop = serviceBlock.getBoundingClientRect().top + window.scrollY;
+    var titleStyle = getComputedStyle(serviceTitle);
+    var scrollStyle = getComputedStyle(serviceScroll);
+    var serviceTitleHeight = serviceTitle.getBoundingClientRect().height + px(titleStyle.marginBottom);
+    var tightServiceScrollHeight = serviceScroll.scrollHeight + px(scrollStyle.borderTopWidth) + px(scrollStyle.borderBottomWidth);
+    var tightServiceBottom = serviceTop + serviceTitleHeight + tightServiceScrollHeight;
+    var newsMaxBottom = newsTop + maxNewsHeight;
+    var targetBottom = Math.min(tightServiceBottom, newsMaxBottom);
+
+    targetBottom = Math.max(targetBottom, newsTop + minNewsHeight, serviceTop + minServiceHeight);
+
+    var newsHeight = targetBottom - newsTop;
+    var serviceHeight = targetBottom - serviceTop;
+
+    newsScroll.style.height = newsHeight + 'px';
+    newsScroll.style.flexBasis = newsHeight + 'px';
+    serviceBlock.style.height = serviceHeight + 'px';
+    serviceBlock.style.flexBasis = serviceHeight + 'px';
+    var renderedDelta = newsScroll.getBoundingClientRect().bottom - serviceBlock.getBoundingClientRect().bottom;
+    if (Math.abs(renderedDelta) > 0.001) {
+      serviceHeight += renderedDelta;
+      serviceBlock.style.height = serviceHeight + 'px';
+      serviceBlock.style.flexBasis = serviceHeight + 'px';
+    }
+    serviceScroll.style.height = '';
+    serviceScroll.style.flexBasis = '';
+    updateScrollHintState(newsScroll);
+    updateScrollHintState(serviceScroll);
+  }
+
+  function scheduleSync() {
+    if (frameId !== null) window.cancelAnimationFrame(frameId);
+    frameId = window.requestAnimationFrame(function () {
+      frameId = null;
+      syncAboutHeights();
+    });
+  }
+
+  scheduleSync();
+  window.addEventListener('load', scheduleSync);
+  window.addEventListener('resize', scheduleSync);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(scheduleSync);
+  }
+})();
+
 // ===== News Scroll Hint =====
 (function () {
   function bindScrollHint(el) {
     var update = function () {
-      var atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
+      var scrollable = el.scrollHeight > el.clientHeight + 2;
+      var atBottom = !scrollable || el.scrollTop + el.clientHeight >= el.scrollHeight - 2;
+      el.dataset.scrollable = String(scrollable);
       el.dataset.atBottom = String(atBottom);
     };
     update();
