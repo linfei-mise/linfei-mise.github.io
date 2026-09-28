@@ -182,7 +182,7 @@ setTopicFilter("all");
     if (isConference) {
       if (/fa-microphone/.test(metaHTML)) {
         roles.push("oral");
-      } else {
+      } else if (!/Spotlight/.test(metaHTML)) {
         roles.push("poster");
       }
     }
@@ -209,11 +209,6 @@ setTopicFilter("all");
     chip.addEventListener("click", function () { setRoleFilter(chip.dataset.role); });
   });
 })();
-
-// ===== Auto-update Date =====
-document.querySelectorAll("#lastUpdated").forEach((el) => {
-  el.textContent = new Date().toISOString().slice(0, 10);
-});
 
 // ===== "/" Hotkey =====
 window.addEventListener("keydown", (e) => {

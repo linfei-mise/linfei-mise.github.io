@@ -673,7 +673,9 @@ a:hover {
 .pub .pmeta {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 6px;
+  max-width: 100%;
   color: var(--colorPrimary);
   font-size: var(--fontSizeSm);
   font-weight: var(--fontWeightStrong);
@@ -708,6 +710,15 @@ a:hover {
   border-radius: var(--borderRadiusSM);
   border: 1px solid #b7eb8f;
   color: #389e0d;
+  font-size: var(--fontSizeSm);
+}
+
+.pub .pmeta .impact-badge {
+  padding: 1px 8px;
+  background: #e6fffb;
+  border-radius: var(--borderRadiusSM);
+  border: 1px solid #87e8de;
+  color: #006d75;
   font-size: var(--fontSizeSm);
 }
 
@@ -755,8 +766,9 @@ a:hover {
 .tag {
   font-size: var(--fontSizeSm);
   padding: 0 8px;
-  height: 22px;
-  line-height: 22px;
+  min-height: 22px;
+  line-height: 20px;
+  overflow-wrap: anywhere;
   border-radius: var(--borderRadiusSM);
   background: var(--colorFillTertiary);
   color: var(--colorTextSecondary);
@@ -973,6 +985,12 @@ a:hover {
   font-size: var(--fontSizeSm);
   color: var(--colorTextTertiary);
   pointer-events: none;
+}
+
+.visitor-map {
+  width: min(400px, 100%);
+  aspect-ratio: 1;
+  margin: 0 auto;
 }
 
 .pub.search-hidden,
@@ -1238,6 +1256,21 @@ a:hover {
 
 /* ===== Responsive - About Sidebar ===== */
 @media (max-width: 720px) {
+  #publications .card-title {
+    flex-wrap: wrap;
+  }
+
+  #publications .pub-search-wrap {
+    flex: 1 1 100%;
+    margin-left: 0;
+  }
+
+  #publications .pub-search,
+  #publications .pub-search:focus {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
   .about-layout {
     grid-template-columns: 1fr;
     align-items: start;

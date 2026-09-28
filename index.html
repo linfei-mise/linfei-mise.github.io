@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="css/style.css?v=15" />
+  <link rel="stylesheet" href="css/style.css?v=19" />
 </head>
 <body>
 
@@ -48,6 +48,7 @@
           <section class="news-block" id="news">
             <h3 class="news-title"><i class="fa-solid fa-bullhorn" style="color: var(--colorPrimary); margin-right: 4px;"></i>Latest News</h3>
             <div class="news-scroll" data-scrollhint>
+              <div class="news-item"><span>[09/2026] My first-author paper <b>BEAKER</b> was accepted to <a href="https://neurips.cc/Downloads/2026" target="_blank" rel="noopener">NeurIPS 2026</a> as a <b>Spotlight</b>.</span></div>
               <div class="news-item"><span>[05/2026] One <b>First</b> author paper accepted by <a href="https://kdd2026.kdd.org/" target="_blank" rel="noopener">KDD 2026</a> as <b>Oral</b>.</span></div>
               <div class="news-item"><span>[06/2025] Non-profit organization <b><a href="https://github.com/HydroSophy" target="_blank" rel="noopener">HydroSophy</a></b> founded. <i>"Where algorithms meet atoms, where intelligence illuminates discovery."</i></span></div>
               <div class="news-item"><span>[09/2023] Joined <b>CASIA</b> State Key Laboratory as a research intern.</span></div>
@@ -100,9 +101,11 @@
       </h2>
       <div class="filter-bar" role="toolbar" aria-label="Publication filters">
         <button class="filter-tag" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-tag" data-filter="embodied_sdl" aria-pressed="false">Embodied AI &amp; SDL</button>
         <button class="filter-tag" data-filter="ai4drug" aria-pressed="false">AI for Drug Discovery</button>
         <button class="filter-tag" data-filter="embodied_uav" aria-pressed="false">Embodied Agent &amp; UAV</button>
         <button class="filter-tag" data-filter="parallel_intelligence" aria-pressed="false">Parallel Intelligence</button>
+        <button class="filter-tag" data-filter="generative_ai" aria-pressed="false">Generative AI</button>
         <button class="filter-tag" data-filter="blockchain_dao" aria-pressed="false">Blockchain &amp; DAO</button>
         <button class="filter-tag" data-filter="remote_sensing" aria-pressed="false">Remote Sensing</button>
       </div>
@@ -121,22 +124,122 @@
 
         <!-- ==================== 2026 ==================== -->
 
+        <article class="pub" data-tags="embodied_sdl">
+          <div class="thumb"><img src="assets/papers/beaker.jpg" alt="BEAKER self-driving laboratory benchmark teaser"></div>
+          <div class="content">
+            <div class="ptitle">BEAKER: An Expert-Curated Benchmark for Embodied Brains in Self-Driving Chemical Laboratories</div>
+            <div class="pauth"><b>Fei Lin</b>, Tengchao Zhang, Ziyang Gong, Xiaotong Yu, Bohan Zhang, Yifan Zhou, Qihao Yang, Ji Dai, Dong Li, Yining Jiang, Qinghua Ni, Jun Huang, Qiang Zhang, Yue Zhou, Zhihang Zhong, Fei-Yue Wang, Xue Yang, Yonglin Tian</div>
+            <div class="pmeta"><span class="venue-badge">NeurIPS 2026</span><span class="award-badge"><i class="fa-solid fa-star"></i> Spotlight</span><span class="award-badge"><i class="fa-solid fa-flask"></i> HydroSophy</span></div>
+            <div class="plinkline"><a class="cite-btn" data-cite="lin2026beaker"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Embodied AI for Self-Driving Laboratories</span><span class="tag">Benchmark</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="blockchain_dao">
+          <div class="thumb"><img src="assets/papers/onchain_publishing.jpg" alt="On-chain scholarly publishing system architecture from the paper"></div>
+          <div class="content">
+            <div class="ptitle">Toward Fully On-Chain Canonical Scholarly Publishing: Efficient Storage of LaTeX Articles on Ethereum</div>
+            <div class="pauth">Tai Jiang, Rui Qin, <b>Fei Lin</b>, Hui Zhang, Wenwen Ding, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">Concurrency Computat. Pract. Exper., 2026</span></div>
+            <div class="plinkline"><a href="https://onlinelibrary.wiley.com/doi/10.1002/cpe.70925" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a><a class="cite-btn" data-cite="jiang2026onchain"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Blockchain &amp; DAO</span><span class="tag">Scholarly Publishing</span><span class="tag">DeSci</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="embodied_uav">
+          <div class="thumb"><img src="assets/papers/uav_embodied_survey.jpg" alt="UAV embodied intelligence framework from the paper"></div>
+          <div class="content">
+            <div class="ptitle">UAVs Meet Embodied Intelligence: Bridging Human Intents and Flying Dynamics Via Harnessing Physical-Digital AI Agents</div>
+            <div class="pauth">Yonglin Tian, Weiyi Wang, Houhua Lu, Xinyi Li, Yihao Wu, Jingyang Chen, Jianli Sun, Chengxiang Li, Yinuo Chen, <b>Fei Lin</b>, Tengchao Zhang, Jing Yang, Deyi Ji, Jian Di, Naiqi Wu, Yisheng Lv</div>
+            <div class="pmeta"><span class="venue-badge">arXiv, 2026</span></div>
+            <div class="plinkline"><a href="https://arxiv.org/pdf/2609.18326" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a><a class="cite-btn" data-cite="tian2026uavembodied"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">UAV</span><span class="tag">Embodied Intelligence</span><span class="tag">Survey</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="parallel_intelligence,generative_ai">
+          <div class="thumb"><img src="assets/papers/ai_social.jpg" alt="AI paradigms figure from the paper"></div>
+          <div class="content">
+            <div class="ptitle">AI and Social Sciences: New AI, New Studies, and New Social Sciences</div>
+            <div class="pauth">Qinghua Ni*, <b>Fei Lin*</b>, Hui Zhang, Xiao Xue, Tengchao Zhang, Linyuan Lü, Bohan Zhang, Yue Lu, Dong Li, Linyao Yang, Peijun Ye, Xuan Li, Chao Guo, Jun Huang, Xiaolong Zheng, Hui Yu, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">Artificial Intelligence Review, 2026</span><span class="co-first-badge">* Co-first Author</span></div>
+            <div class="plinkline"><a href="https://link.springer.com/article/10.1007/s10462-026-11693-5" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a><a class="cite-btn" data-cite="ni2026aisocial"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">AI &amp; Social Sciences</span><span class="tag">Parallel Intelligence</span><span class="tag">Survey</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/quantum_intelligence.jpg" alt="Quantum computing development timeline from the paper"></div>
+          <div class="content">
+            <div class="ptitle">New AI for Quantum Computing: From Quantum Optimization to Quantum Intelligence</div>
+            <div class="pauth">Yonglin Tian, Xinyu Liu, <b>Fei Lin</b>, Lingxi Li, Xiaoxiang Na, Paul J. Werbos, S. N. Wendin</div>
+            <div class="pmeta"><span class="venue-badge">IEEE/CAA J. Automatica Sinica, 2026</span></div>
+            <div class="plinkline"><a href="https://www.ieee-jas.net/article/exportPdf?id=01516f7d-0138-4399-a3d1-4f4e8bcc8022&amp;language=en" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a><a class="cite-btn" data-cite="tian2026quantum"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Quantum Intelligence</span><span class="tag">Perspective</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/parallel_energy_storage.jpg" alt="Parallel energy storage framework from the book chapter"></div>
+          <div class="content">
+            <div class="ptitle">Parallel Energy Storage: New Systems with New AI Beyond LLMs</div>
+            <div class="pauth">Jing Yang, <b>Fei Lin</b>, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">Modern Energy Storage, 2026</span></div>
+            <div class="plinkline"><a href="https://www.sciencedirect.com/science/chapter/edited-volume/pii/B9780323954198000167" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Chapter</a><a class="cite-btn" data-cite="yang2026energy"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Parallel Intelligence</span><span class="tag">Energy Storage</span><span class="tag">Book Chapter</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="parallel_intelligence">
+          <div class="thumb"><img src="assets/papers/nursing.png" alt="Parallel nursing paper thumbnail"></div>
+          <div class="content">
+            <div class="ptitle">Parallel Nursing: Enhancing Postoperative Nursing with LLM Agent Systems</div>
+            <div class="pauth">Xue Qiao, Jing Wang, Mengmeng Zhang, <b>Fei Lin</b>, Peijun Ye, Qinghua Ni, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">IEEE Trans. Computational Social Systems, 2026</span></div>
+            <div class="plinkline"><a href="https://ieeexplore.ieee.org/document/11203945" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a class="cite-btn" data-cite="qiao2026parallel"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Parallel Intelligence</span><span class="tag">LLM Agent</span><span class="tag">Healthcare</span></div>
+          </div>
+        </article>
+
         <article class="pub" data-tags="remote_sensing">
           <div class="thumb"><img src="assets/papers/earth_adapter.png" alt="thumb"></div>
           <div class="content">
-            <div class="ptitle">Earth-Adapter: Bridge the Geospatial Domain Gaps with Mixture of Frequency Adaptation</div>
+            <div class="ptitle">Earth-Adapter: Bridge the Geospatial Domain Gaps with a Frequency-Guided Mixture of Adapters</div>
             <div class="pauth">Xiaoxing Hu, Ziyang Gong, Yupei Wang, Yuru Jia, <b>Fei Lin</b>, Dexiang Gao, Ke An, Jianhong Han, Zhuoran Sun, Gen Luo, Xue Yang</div>
             <div class="pmeta"><span class="venue-badge">AAAI 2026</span></div>
             <div class="plinkline">
-              <a href="https://arxiv.org/pdf/2504.06220?" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a href="https://ojs.aaai.org/index.php/AAAI/article/download/42498/46459" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
               <a href="https://github.com/VisionXLab/Earth-Adapter" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i>Code</a>
             
-              <a class="cite-btn" data-cite="hu2025earth"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+              <a class="cite-btn" data-cite="hu2026earth"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
             <div class="ptags"><span class="tag">Remote Sensing</span><span class="tag">PEFT</span></div>
           </div>
         </article>
 
         <!-- ==================== 2025 ==================== -->
+
+        <article class="pub" data-tags="blockchain_dao,generative_ai">
+          <div class="thumb"><img src="assets/papers/validatable_agents.jpg" alt="Validatable multi-agent collaboration mechanism from the paper"></div>
+          <div class="content">
+            <div class="ptitle">A Validatable Multi-Agent Collaboration Mechanism Driven by Smart Contracts</div>
+            <div class="pauth">Sangtian Guan, <b>Fei Lin</b>, Juanjuan Li, Xiaolong Liang</div>
+            <div class="pmeta"><span class="venue-badge">IJICS, 2025</span></div>
+            <div class="plinkline"><a href="https://ijics.cn/api/ijics/article/download/261" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a><a class="cite-btn" data-cite="guan2025validatable"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Multi-Agent Systems</span><span class="tag">Smart Contracts</span><span class="tag">DAO</span></div>
+          </div>
+        </article>
+
+        <article class="pub" data-tags="generative_ai">
+          <div class="thumb"><img src="assets/papers/pagerbomb_collab.jpg" alt="Small-large model collaboration framework from the paper"></div>
+          <div class="content">
+            <div class="ptitle">Small-Large Model Collaboration in Public Opinion Topic Discovery: A Case Study with the Pager Bomb Attack</div>
+            <div class="pauth">Baoyu Zhang, Tao Chen, Weishan Zhang, Tao Wang, Qinghua Ni, <b>Fei Lin</b>, Linyuan Lü, Juanjuan Li, Fei-Yue Wang</div>
+            <div class="pmeta"><span class="venue-badge">J. Cyber-Physical-Social Intelligence, 2025</span></div>
+            <div class="plinkline"><a href="https://journal.agist.org/index.php/cpsi/article/download/38/21" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a><a class="cite-btn" data-cite="zhang2025smalllarge"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
+            <div class="ptags"><span class="tag">Model Collaboration</span><span class="tag">Public Opinion</span></div>
+          </div>
+        </article>
 
         <article class="pub" data-tags="ai4drug">
           <div class="thumb"><img src="assets/papers/toximol.png" alt="thumb"></div>
@@ -159,7 +262,7 @@
           <div class="content">
             <div class="ptitle">UAVs Meet LLMs: Overviews and Perspectives Toward Agentic Low-Altitude Mobility</div>
             <div class="pauth">Yonglin Tian*, <b>Fei Lin*</b>, Yiduo Li, Tengchao Zhang, Qiyao Zhang, Xuan Fu, Jun Huang, Xingyuan Dai, Yutong Wang, Chunwei Tian, Bai Li, Yisheng Lv, Levente Kovács, Fei-Yue Wang</div>
-            <div class="pmeta"><span class="venue-badge">Information Fusion, 2025</span><span class="co-first-badge">* Co-first Author</span></div>
+            <div class="pmeta"><span class="venue-badge">Information Fusion, 2025</span><span class="co-first-badge">* Co-first Author</span><span class="impact-badge"><i class="fa-solid fa-chart-line"></i> ESI Highly Cited Paper</span></div>
             <div class="plinkline">
               <a href="https://arxiv.org/pdf/2501.02341?" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
               <a href="https://github.com/Hub-Tian/UAVs_Meet_LLMs" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i>Project</a>
@@ -305,18 +408,6 @@
         </article>
 
         <article class="pub" data-tags="parallel_intelligence">
-          <div class="thumb"><img src="assets/papers/nursing.png" alt="thumb"></div>
-          <div class="content">
-            <div class="ptitle">Parallel Nursing: Enhancing Postoperative Nursing with LLM Agent Systems</div>
-            <div class="pauth">Xue Qiao, Jing Wang, Mengmeng Zhang, <b>Fei Lin</b>, Peijun Ye, Qinghua Ni, Fei-Yue Wang</div>
-            <div class="pmeta"><span class="venue-badge">IEEE Trans. Computational Social Systems, 2025</span></div>
-            <div class="plinkline"><a href="https://ieeexplore.ieee.org/document/11203945" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i>Paper</a>
-              <a class="cite-btn" data-cite="qiao2025parallel"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
-            <div class="ptags"><span class="tag">Parallel Intelligence</span><span class="tag">LLM Agent</span><span class="tag">Healthcare</span></div>
-          </div>
-        </article>
-
-        <article class="pub" data-tags="parallel_intelligence">
           <div class="thumb"><img src="assets/papers/pdfm.png" alt="thumb"></div>
           <div class="content">
             <div class="ptitle">Parallel Deep Foundation Model: A Co-Evolution Framework for Analogical Imagination and Embodied Cognition of Parallel Intelligence</div>
@@ -414,17 +505,6 @@
           </div>
         </article>
 
-        <article class="pub" data-tags="ai4drug,parallel_intelligence">
-          <div class="thumb"><img src="assets/papers/parallel_drug.png" alt="thumb"></div>
-          <div class="content">
-            <div class="ptitle">Parallel Drug Systems: Framework and Methods Based on Large Language Models and Three Types of Humans</div>
-            <div class="pauth"><b>Fei Lin</b>, Fei-Yue Wang, Yonglin Tian, Xianting Ding, Qinghua Ni, Jing Wang, Le Shen</div>
-            <div class="pmeta"><span class="venue-badge">Chinese J. Intelligent Science and Technology, 2024</span></div>
-            <div class="plinkline"><a class="cite-btn" data-cite="lin2024parallel"><i class="fa-solid fa-quote-right"></i>Cite</a></div>
-            <div class="ptags"><span class="tag">AI for Drug Discovery</span><span class="tag">Parallel Intelligence</span><span class="tag">LLM</span></div>
-          </div>
-        </article>
-
         <article class="pub" data-tags="blockchain_dao">
           <div class="thumb"><img src="assets/papers/attention.png" alt="thumb"></div>
           <div class="content">
@@ -504,12 +584,12 @@
         <h3 style="margin: 0 0 var(--margin) 0; color: var(--colorText); font-size: var(--fontSize);">
           <i class="fa-solid fa-earth-americas" style="color: var(--colorPrimary);"></i> Visitors
         </h3>
-        <div style="width: 400px; height: 400px; margin: 0 auto;">
+        <div class="visitor-map">
           <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=v8V1cJvpqgdGJil5u6AFX6iAl2h3sfAU8vsLPNy074Q"></script>
         </div>
       </div>
       <div class="footer">
-        <div>Last updated: <span id="lastUpdated">YYYY-MM-DD</span></div>
+        <div>Last updated: <span>2026-09-29</span></div>
         <div>Tip: press <span class="kbd">/</span> to focus filters</div>
       </div>
     </div>
@@ -517,11 +597,11 @@
 
   <footer class="footer" style="text-align: center; padding: var(--paddingLG) 0;">
     <div style="color: var(--colorTextTertiary); font-size: var(--fontSizeSm);">
-      Last updated: <span id="lastUpdated">2026-03-07</span> ·
+      Last updated: <span>2026-09-29</span> ·
       <a href="https://github.com/linfei-mise" target="_blank" style="color: var(--colorTextTertiary);"><i class="fa-brands fa-github"></i> Source</a>
     </div>
   </footer>
 
-  <script src="js/main.js?v=11"></script>
+  <script src="js/main.js?v=13"></script>
 </body>
 </html>
